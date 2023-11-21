@@ -6,11 +6,12 @@
 require("@popperjs/core")
 
 import Rails from "@rails/ujs"
-import "bootstrap"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "bootstrap"
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 Rails.start()
 Turbolinks.start()
