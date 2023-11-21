@@ -1,0 +1,34 @@
+<h1>Product Show</h1><br>
+
+<table class="table">
+	<tbody>
+		<tr>
+			<td>
+				<b> Name </b>
+			</td>
+			<td>
+				<%= @product.name %>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b> Description </b>
+			</td>
+			<td>
+				<%= @product.description %>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<b> Price </b>
+			</td>
+			<td>
+				<%= @product.price %>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<%= link_to :Back, products_path, class: 'btn btn-secondary' %>

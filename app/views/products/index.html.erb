@@ -1,0 +1,29 @@
+<h1>Products</h1>
+<%= link_to :New, new_product_path, class: 'btn btn-primary' %><br><br>
+
+<table class="table">
+	<thead>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Price</th>
+		<th>Acrions</th>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+			<tr>
+				<td>
+					<%= product.name %>
+				</td>
+				<td>
+					<%= product.description %>
+				</td>
+				<td>
+					<%= product.price %>
+				</td>
+				<td>
+					<%= link_to :view, product %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
