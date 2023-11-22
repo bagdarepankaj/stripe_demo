@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :products
+
+  resource :cart, only: :show do
+    get :add
+    get :remove
+  end
 end

@@ -1,0 +1,11 @@
+<h1>Cart</h1>
+<br>
+<% @cart["products"].each do |product| %>
+	<div class="card mb-3">
+		<div class="card-body">
+			<h5 class="card-title">Product: <%= product["name"] %></h5>
+			<div class="card-text"> Details: <%= product["description"] %></div>
+			<div class="card-text"> Price: <%= product["price"] %></div>
+		</div>
+	</div>
+<% end %>

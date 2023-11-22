@@ -15,3 +15,13 @@
  */
 
 @import 'bootstrap/dist/css/bootstrap';
+
+.navbar-brand {
+  color: darkolivegreen;
+  font-size: x-large;
+  font-weight: 450;
+}
+
+.nav-container {
+  margin: 0.5% 4%;
+}

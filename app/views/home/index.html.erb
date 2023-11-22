@@ -1,4 +1,4 @@
-<h1>Home#index</h1>
+<h1>Home</h1>
 <br>
 
 <div class="row row-cols-3 g-4">
@@ -9,11 +9,11 @@
         <div class="card-body">
           <h5 class="card-title"><%= product.name %></h5>
           <p class="card-text"><%= product.description %></p>
+
           <%= link_to 'View', product, class: 'btn btn-primary' %>
-          <button class="btn btn-success">
-          	<i class="bi bi-cart"></i>
-          	Add To Cart
-          </button>
+          <%= link_to add_cart_path(product_id: product.id), class: 'btn btn-success' do  %>
+           	<i class="bi bi-cart"></i> Add
+          <% end %>
         </div>
       </div>
     </div>
@@ -89,5 +89,5 @@
       </div>
     </div>
   </div>
- -->
+-->
 </div>
