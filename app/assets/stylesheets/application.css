@@ -19,9 +19,15 @@
 .navbar-brand {
   color: darkolivegreen;
   font-size: x-large;
-  font-weight: 450;
+  font-weight: 500;
 }
 
 .nav-container {
   margin: 0.5% 4%;
+}
+.nav-border {
+  border-bottom: 1.5px inset darkolivegreen;
+}
+.card-details {
+  padding: 10px 30px;
 }

@@ -15,5 +15,13 @@ class CartsController < ApplicationController
   end
 
   def remove
+    @cart = session["cart"] || { "products" => [] }
+    product = Product.find_by(id: params[:product_id])
+
+    @cart["products"].delete(product.as_json)
+
+    respond_to do |format|
+      format.html { redirect_to :cart }
+    end
   end
 end

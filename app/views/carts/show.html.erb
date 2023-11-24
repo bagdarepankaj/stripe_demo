@@ -2,10 +2,18 @@
 <br>
 <% @cart["products"].each do |product| %>
 	<div class="card mb-3">
-		<div class="card-body">
-			<h5 class="card-title">Product: <%= product["name"] %></h5>
-			<div class="card-text"> Details: <%= product["description"] %></div>
-			<div class="card-text"> Price: <%= product["price"] %></div>
+		<div class="card-body d-flex">
+			<img src="http://placehold.it/120x120&text=image<%= product['id'] %>">
+			<!-- <img src="https://picsum.photos/id/237/200/300"> -->
+			<!-- <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png"> -->
+			<div class="card-details flex-fill">
+				<h5 class="card-title">Product: <%= product["name"] %></h5>
+				<div class="card-text"> Details: <%= product["description"] %></div>
+				<div class="card-text"> Price: <%= product["price"] %></div>
+			</div>
+			<%= link_to remove_cart_path(product_id: product["id"]) do %>
+				<i class="btn bi bi-trash3-fill btn-warning"></i>
+			<% end %>
 		</div>
 	</div>
 <% end %>
