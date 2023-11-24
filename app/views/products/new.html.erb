@@ -16,10 +16,9 @@
 		<%= p.text_field :price, class: 'form-control' %>
 	</div>
 
-	<div class="form-field">
-		<%= p.submit 'Create', class: 'btn btn-primary' %>
+	<div class="mb-3">
+		<%= p.submit 'Create', class: 'btn btn-info' %>
+		<%= link_to :Back, products_path, class: 'btn btn-secondary' %>
 	</div>
 
 <% end %>
-<br>
-<%= link_to :Back, products_path, class: 'btn btn-secondary' %>

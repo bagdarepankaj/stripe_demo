@@ -31,3 +31,12 @@
 .card-details {
   padding: 10px 30px;
 }
+
+a {
+  color: darkgreen;
+}
+
+.form-control:focus {
+  border-color: darkolivegreen;
+  box-shadow: 0 0 0 0.05em darkolivegreen;
+}

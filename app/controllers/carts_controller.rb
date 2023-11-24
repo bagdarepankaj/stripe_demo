@@ -1,13 +1,16 @@
 class CartsController < ApplicationController
+  before_action :set_cart
+  before_action :find_product, only: [:add, :remove]
+
   def show
-    @cart = session["cart"] || { "products" => [] }
   end
 
   def add
-    @cart = session["cart"] || { "products" => [] }
-    product = Product.find_by(id: params[:product_id])
-
-    @cart["products"] << product
+    if @added_product
+      @added_product["quantity"] += 1
+    else
+      @cart["products"] << @product
+    end
 
     respond_to do |format|
       format.html { redirect_to :cart }
@@ -15,13 +18,26 @@ class CartsController < ApplicationController
   end
 
   def remove
-    @cart = session["cart"] || { "products" => [] }
-    product = Product.find_by(id: params[:product_id])
-
-    @cart["products"].delete(product.as_json)
+    if @added_product["quantity"] == 1
+      @cart["products"].delete(@product.as_json)
+    else
+      @added_product["quantity"] -= 1
+    end
 
     respond_to do |format|
       format.html { redirect_to :cart }
     end
+  end
+
+  private
+
+  def set_cart
+    session["cart"] ||= { "products" => [] }
+    @cart = session["cart"]
+  end
+
+  def find_product
+    @product = Product.find_by(id: params[:product_id])
+    @added_product = @cart["products"].find { |p| p["id"] == @product["id"] }
   end
 end
