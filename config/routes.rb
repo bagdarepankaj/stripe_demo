@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :products
+  resource :payments do
+    get :return
+    get :session_status
+  end
 
   resource :cart, only: :show do
     get :add

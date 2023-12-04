@@ -1,0 +1,30 @@
+<section id="success" class="hidden">
+	<div style="margin: 5% 15%;">
+		<div style="padding: 5%">
+			<h2 class="text-center">
+				<p>Your Payment is successfull <i class="bi bi-check-circle" style="color: green"></i></p>
+				<%= link_to 'Go Back', root_path, class: 'btn btn-secondary' %>
+			</h2>
+		</div>
+	</div>
+</section>
+
+<script defer>
+	initialize();
+
+	async function initialize() {
+	  const queryString = window.location.search;
+	  const urlParams = new URLSearchParams(queryString);
+	  const sessionId = urlParams.get('session_id');
+	  const response = await fetch(`/payments/session_status?session_id=${sessionId}`);
+	  // const response = await fetch(`/payments/session_status`);
+	  const session = await response.json();
+
+	  if (session.status == 'open') {
+	    window.replace('http://localhost:3000/payments/new')
+	  } else if (session.status == 'complete') {
+	    document.getElementById('success').classList.remove('hidden');
+	    document.getElementById('customer-email').textContent = session.customer_email
+	  }
+	}
+</script>

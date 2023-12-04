@@ -1,0 +1,21 @@
+<!-- Display a payment form -->
+<div id="checkout">
+</div>
+ <!-- <div data-controller="hello" data-hello-clientsecret-value="<%#= @clientSecret %>"> -->
+   <!-- <div data-hello-target="checkout"></div> -->
+ <!-- </div> -->
+
+<script>
+
+  initialize()
+  async function initialize() {
+
+    var clientSecret = "<%= @clientSecret %>"
+    const stripe = Stripe("pk_test_51OFAf8SJiLQdhLcQkhsb2oSADrkKuec2t6xQBO59byY1JAyTqsYhrPgC9u0z0CwhVzDm4XoAx5lRsvPGnLYbDwma00wfLz4VeC"); 
+
+    var checkout_page = await stripe.initEmbeddedCheckout({
+      clientSecret,
+    });
+    checkout_page.mount('#checkout');
+  }
+</script>
