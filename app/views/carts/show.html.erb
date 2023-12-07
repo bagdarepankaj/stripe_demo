@@ -5,6 +5,7 @@
 		<div class="card mb-3">
 			<div class="card-body d-flex">
 				<img src="http://placehold.it/120x120&text=image<%= product['id'] %>">
+				<%#= image_tag product.images.first.variant(resize_to_limit: [120, 120]) if product.images.attached? %>
 				<!-- <img src="https://picsum.photos/id/237/200/300"> -->
 				<!-- <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png"> -->
 				<div class="card-details flex-fill">

@@ -24,7 +24,7 @@
 					<%= product.price %>
 				</td>
 				<td>
-					<%= link_to :view, product %>
+					<%= link_to :view, product %> | <%= link_to :edit, edit_product_path(product) %>
 				</td>
 			</tr>
 		<% end %>

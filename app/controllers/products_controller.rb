@@ -12,6 +12,10 @@ class ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
   end
 
+  def edit
+    @product = Product.find_by(id: params[:id])
+  end
+
   def create
     @product = Product.new(product_params)
     respond_to do |format|
@@ -19,7 +23,7 @@ class ProductsController < ApplicationController
         if @product.save
           redirect_to products_path, notice: 'Sucessfully created!'
         else
-          redirect_to products_path, error: 'An Error occured while completing the transcation'
+          render :new
         end
       }
     end
@@ -32,7 +36,7 @@ class ProductsController < ApplicationController
         if @product.update(product_params)
           redirect_to products_path, notice: 'Sucessfully Updated!'
         else
-          redirect_to products_path, error: 'An Error occured while Updating'
+          render :edit
         end
       }
     end
@@ -41,6 +45,6 @@ class ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price, images: [])
   end
 end

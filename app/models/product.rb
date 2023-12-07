@@ -3,6 +3,8 @@ class Product < ApplicationRecord
 
   after_create :create_stripe_detail
 
+  has_many_attached :images
+
   def create_stripe_detail
     prod = Stripe::Product.create({
       name: name,

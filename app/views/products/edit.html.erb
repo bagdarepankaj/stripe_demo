@@ -7,9 +7,9 @@
 	<% end %>
 <% end %>
 
-<h1>New Product</h1>
+<h1>Update Product</h1>
 
-<%= form_for @product do |p| %>
+<%= form_for @product, method: :put do |p| %>
 	<div class="mb-3">
 		<%= p.label :name, class: "form-label" %>
 		<%= p.text_field :name, class: 'form-control' %>
@@ -27,11 +27,12 @@
 
 	<div class="mb-3">
 		<%= p.label :images, class: "form-label" %>
-		<%= p.file_field :images, multiple: true, class: 'form-control' %>
+		<%#= p.file_field :images, class: 'form-control' %>
+		<%= p.file_field :images, multiple: true, class: 'form-control', default: @product.images.attached? ? @product.images.attachments.first : '' %>
 	</div>
 
 	<div class="mb-3">
-		<%= p.submit 'Create', class: 'btn btn-info' %>
+		<%= p.submit 'Update', class: 'btn btn-info' %>
 		<%= link_to :Back, products_path, class: 'btn btn-secondary' %>
 	</div>
 

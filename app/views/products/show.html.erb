@@ -1,34 +1,42 @@
 <h1>Product Show</h1><br>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>
-				<b> Name </b>
-			</td>
-			<td>
-				<%= @product.name %>
-			</td>
-		</tr>
+<div class="row">
+	<div class="col-md-9">
+		<table class="table">
+			<tbody>
+				<tr>
+					<td>
+						<b> Name </b>
+					</td>
+					<td>
+						<%= @product.name %>
+					</td>
+				</tr>
 
-		<tr>
-			<td>
-				<b> Description </b>
-			</td>
-			<td>
-				<%= @product.description %>
-			</td>
-		</tr>
-
-		<tr>
-			<td>
-				<b> Price </b>
-			</td>
-			<td>
-				<%= @product.price %>
-			</td>
-		</tr>
-	</tbody>
-</table>
+				<tr>
+					<td>
+						<b> Description </b>
+					</td>
+					<td>
+						<%= @product.description %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b> Price </b>
+					</td>
+					<td>
+						<%= @product.price %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-md-3">
+		<% if @product.images.attached? %>
+			<%= image_tag @product.images.first.variant(resize_to_limit: [400, 400]), class: 'img-responsive' %>
+		<% end %>
+	</div>
+</div>
 
 <%= link_to :Back, products_path, class: 'btn btn-secondary' %>
